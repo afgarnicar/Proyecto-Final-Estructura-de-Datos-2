@@ -71,7 +71,7 @@ class GrafoApp(QtWidgets.QMainWindow):
 
         # Crear un QLabel
         self.lblTitulo2 = QtWidgets.QLabel(self)
-        self.lblTitulo2.setGeometry(10, 10, 100, 100)  # Adjust the position and size of the QLabel
+        self.lblTitulo2.setGeometry(10, 10, 100, 100)  # Ajusta la posición y tamaño del QLabel
 
         # Cargar la imagen
         pixmap = QtGui.QPixmap("Recurso-1-8.png")
@@ -98,7 +98,7 @@ class GrafoApp(QtWidgets.QMainWindow):
 
     def dibujar_grafo(self):
         try:
-            # # Limpiar la escena y listas
+            # Limpiar la escena y listas
             self.scene.clear()
             self.nodos.clear()
             self.aristas.clear()
