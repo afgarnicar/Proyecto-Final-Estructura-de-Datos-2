@@ -167,7 +167,7 @@ class GrafoApp(QtWidgets.QMainWindow):
                 x = random.randint(50, width)  # Coordenada x aleatoria
                 y = random.randint(50, height)  # Coordenada y aleatoria
                 nodo = Nodo(x, y, radius, i + 1, self)
-                nodo.setPos(x, y)  # Position the node in the scene
+                nodo.setPos(x, y)  # Posicionar el nodo en la escena
                 self.scene.addItem(nodo)
                 self.nodos.append(nodo)
 
@@ -200,9 +200,9 @@ class GrafoApp(QtWidgets.QMainWindow):
             for i in range(filas):
                 for j in range(columnas):
                     if i == j:
-                        self.ui.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem('0'))  # No edges to itself
+                        self.ui.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem('0'))  # No aristas a sí mismo
                     else:
-                        valor_aleatorio = random.randint(1, 100)  # Random value between 1 and 100
+                        valor_aleatorio = random.randint(1, 100)  # Valor aleatorio entre 1 y 100
                         self.ui.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem(str(valor_aleatorio)))
         except Exception as e:
             print(f"Error al llenar la matriz: {e}")
