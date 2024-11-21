@@ -196,14 +196,18 @@ class GrafoApp(QtWidgets.QMainWindow):
         try:
             filas = self.ui.tableWidget.rowCount()
             columnas = self.ui.tableWidget.columnCount()
+            probabilidad_no_conexion = 0.3  # Probabilidad de que no haya conexión entre dos nodos
 
             for i in range(filas):
                 for j in range(columnas):
                     if i == j:
                         self.ui.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem('0'))  # No aristas a sí mismo
                     else:
-                        valor_aleatorio = random.randint(1, 100)  # Valor aleatorio entre 1 y 100
-                        self.ui.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem(str(valor_aleatorio)))
+                        if random.random() < probabilidad_no_conexion:
+                            self.ui.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem('0')) # Sin conexión
+                        else:
+                            valor_aleatorio = random.randint(1, 100)  # Valor aleatorio entre 1 y 100
+                            self.ui.tableWidget.setItem(i, j, QtWidgets.QTableWidgetItem(str(valor_aleatorio)))
         except Exception as e:
             print(f"Error al llenar la matriz: {e}")
 
